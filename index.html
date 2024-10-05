@@ -1,0 +1,50 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lucas Rigo">
+    
+    <title>Jeu de la Vie - Simulation d'Automate Cellulaire</title>
+    <style>
+        .troll-button {
+            position: absolute;
+            top: 200px;
+            right: 200px;
+            transform: translate(50%, 50%);
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="troll-button" class="troll-button">Clique ici</button>
+    </div>
+    
+    <script>
+        const position_button = document.getElementById("troll-button");
+
+        document.addEventListener("mousemove", function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            const rect = position_button.getBoundingClientRect();
+
+            if (x - rect.left < 50) {
+                position_button.style.left = (rect.left - 1) + "px";
+            }
+            if (x - rect.left > 50) {
+                position_button.style.left = (rect.left + 1) + "px";
+            }
+            if (y - rect.top < 50) {
+                position_button.style.top = (rect.top - 1) + "px";
+            }
+            if (y - rect.top > 50) {
+                position_button.style.top = (rect.top + 1) + "px";
+            }
+        });
+
+        document.getElementById("troll-button").addEventListener("click", function() {
+            window.location.href = "https://google.com";
+        });
+    </script>
+</body>
+</html>
